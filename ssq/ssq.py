@@ -26,7 +26,7 @@ def request_one(name, url):
     red_balls = soup.find_all('font', attrs={'color': 'red'})
     blue_ball = soup.find_all('font', attrs={'color': 'blue'})
     print name + ',' + \
-          ','.join(ball.string for ball in filter(lambda ball: ball.string.isdigit, red_balls)) + \
+          ','.join(ball.string for ball in filter(lambda ball: ball.string.isdigit(), red_balls)) + \
           ',' + blue_ball[0].string
 
 

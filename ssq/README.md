@@ -7,7 +7,7 @@
 本次实验目的是看看红蓝球各个数字近几年的出现概率是否是均匀的，实现过程熟悉下python的requests、beautifulsoup工具。
 
 ---
-分为两部分，第一部分是数据采集，用的是python的requests、beautiful库，代码极短，真是方便，在ssq.py文件中；第二部分是hive建表语句及分析语句，将第一步的数据
+代码分为两部分，第一部分是数据采集，用的是python的requests、beautiful库，代码极短，真是方便，在ssq.py文件中；第二部分是hive建表语句及分析语句，在stg_ssq.hql文件中，将第一步的数据
 导入hive中，做分析，出结果。
 
 ---
