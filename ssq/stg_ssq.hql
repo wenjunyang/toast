@@ -20,31 +20,21 @@ LOCATION
   
 -- 篮球频率
 select blue,
-       cnt,
-       cnt / sum(cnt) over () as frequency
-from       
-(
-    select blue, 
-           count(*) as cnt
-      from stg_ssq
-     group by blue 
-) s
-order by frequency desc;
+       count(*) as cnt,
+       count(*) / sum(count(*)) over () as frequency
+  from stg_ssq
+ group by blue
+ order by frequency desc;
   
 -- 红球频率
 select red,
-       cnt,
-       cnt / sum(cnt) over() as frequency
-  from     
-(
-    select red,
-           count(*) as cnt
-      from
+       count(*) as cnt,
+       count(*) / sum(count(*)) over () as frequency
+  from
     (
         select stack(6, red1, red2, red3, red4, red5, red6) as red
-          from stg_ssq  
+          from stg_ssq
     ) v
-    group by red
-) s 
+group by red
 order by frequency desc
 
