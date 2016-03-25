@@ -42,7 +42,7 @@ def crawle(host, dst):
             if not os.path.exists(dst + path):
                 os.makedirs(dst + path)
             with open('%s%s/%s' % (dst, path, file), 'w') as target:
-                target.writelines(response.content)
+                target.writelines(response.content.replace(host, 'localhost'))
 
             # 把页面内链添加到队列
             soup = BeautifulSoup(response.content)
@@ -52,6 +52,8 @@ def crawle(host, dst):
                     _URL_QUEUE.append(url['href'])
         except Exception, e:
             print url
+
+        print 'url:%d, done:%d' % (len(_URL_QUEUE), len(_DONE))
 
 
 if __name__ == '__main__':
